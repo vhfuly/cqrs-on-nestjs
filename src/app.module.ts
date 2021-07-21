@@ -3,8 +3,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+// import { GraphQLModule } from '@nestjs/graphql';
+// import { join } from 'path';
+import { CampaignsModule } from '@src/campaigns/campaigns.module';
 @Module({
   imports: [
+    // GraphQLModule.forRoot({
+    //   // autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+    // }),
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: ['.env'],
@@ -21,6 +27,7 @@ import { MongooseModule } from '@nestjs/mongoose';
       }),
       inject: [ConfigService],
     }),
+    CampaignsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
