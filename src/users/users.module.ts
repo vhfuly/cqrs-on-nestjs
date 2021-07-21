@@ -6,6 +6,7 @@ import { User, UserSchema } from '@src/users/models/user.model';
 import { UserRepository } from '@src/users/repositories/user.repository';
 import { CreateUserHandler } from '@src/users/commands/handlers/create-user.handler';
 import { QueryHandlers } from '@src/users/queries/handlers';
+import { NewUserHandler } from '@src/users/events/handlers/new-user.handler';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { QueryHandlers } from '@src/users/queries/handlers';
     UsersResolver,
     UserRepository,
     CreateUserHandler,
+    NewUserHandler,
     ...QueryHandlers,
   ]
 })

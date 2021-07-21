@@ -2,6 +2,7 @@ import { Document } from 'mongoose';
 
 import { AggregateRoot } from '@nestjs/cqrs';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { NewUserEvent } from '@src/users/events/impl/new-user.event';
 
 @Schema({ timestamps: true })
 export class User extends AggregateRoot {
@@ -16,6 +17,10 @@ export class User extends AggregateRoot {
 
   constructor() {
     super();
+  }
+
+  createUser() {
+    this.apply(new NewUserEvent(this));
   }
 }
 
