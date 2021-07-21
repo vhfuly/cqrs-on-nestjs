@@ -1,16 +1,14 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-// import { GraphQLModule } from '@nestjs/graphql';
+import { GraphQLModule } from '@nestjs/graphql';
 // import { join } from 'path';
 import { UsersModule } from '@src/users/users.module';
 @Module({
   imports: [
-    // GraphQLModule.forRoot({
-    //   // autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-    // }),
+    GraphQLModule.forRoot({
+      autoSchemaFile: 'schema.gql',
+    }),
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: ['.env'],
@@ -29,7 +27,5 @@ import { UsersModule } from '@src/users/users.module';
     }),
     UsersModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
