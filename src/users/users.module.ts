@@ -1,10 +1,14 @@
 import { Module } from '@nestjs/common';
+import { CqrsModule } from '@nestjs/cqrs';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersResolver } from '@src/users/users.resolver';
 import { User, UserSchema } from '@src/users/models/user.model';
+import { UserRepository } from './repositories/user.repository';
+import { CreateUserHandler } from './commands/handlers/create-user.handler';
 
 @Module({
   imports: [
+    CqrsModule,
     MongooseModule.forFeature([
       {
         name: User.name,
@@ -12,6 +16,10 @@ import { User, UserSchema } from '@src/users/models/user.model';
       },
   ]),
   ],
-  providers: [UsersResolver]
+  providers: [
+    UsersResolver,
+    UserRepository,
+    CreateUserHandler,
+  ]
 })
 export class UsersModule {}

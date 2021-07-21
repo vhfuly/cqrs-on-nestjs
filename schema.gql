@@ -2,6 +2,24 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+"""List User DTO"""
+type ListUserDto {
+  name: String
+  phone: String
+  email: String
+}
+
 type Query {
-  create: String!
+  test: String!
+}
+
+type Mutation {
+  createUser(campaignInput: CreateUserDto!): ListUserDto!
+}
+
+"""Create user DTO"""
+input CreateUserDto {
+  name: String!
+  phone: String!
+  email: String!
 }

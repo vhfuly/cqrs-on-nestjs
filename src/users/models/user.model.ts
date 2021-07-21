@@ -1,11 +1,10 @@
 import { Document } from 'mongoose';
+
+import { AggregateRoot } from '@nestjs/cqrs';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 @Schema({ timestamps: true })
-export class User {
-  @Prop({ type: String, required: true, unique: true })
-  id: string;
-
+export class User extends AggregateRoot {
   @Prop({ type: String, required: true })
   name: string;
 
@@ -14,6 +13,10 @@ export class User {
 
   @Prop({ type: String, required: true })
   email: string;
+
+  constructor() {
+    super();
+  }
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

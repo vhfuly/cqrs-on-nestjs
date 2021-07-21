@@ -1056,6 +1056,11 @@
     tslib "1.11.1"
     uuid "7.0.1"
 
+"@nestjs/cqrs@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/cqrs/-/cqrs-8.0.0.tgz#ef5e8ddc9d50eae5ca18f0c86c8928e072ba1d93"
+  integrity sha512-6Fy0jgUZatRXirfAhDVy3Du2UYoBLrlT7yjK4ZX3L7rBMdfTYPqmn8wE2JH3kXW3yUqLDdnS9PotHf6Y0UzLxw==
+
 "@nestjs/graphql@^8.0.2":
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/@nestjs/graphql/-/graphql-8.0.2.tgz#8b0d4c47f536b98902c8953e785c251fba3624a4"
@@ -2850,6 +2855,11 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
   dependencies:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
+
+class-transformer@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/class-transformer/-/class-transformer-0.4.0.tgz#b52144117b423c516afb44cc1c76dbad31c2165b"
+  integrity sha512-ETWD/H2TbWbKEi7m9N4Km5+cw1hNcqJSxlSYhsLsNjQzWWiZIYA1zafxpK9PwVfaZ6AqR5rrjPVUBGESm5tQUA==
 
 class-utils@^0.3.5:
   version "0.3.6"

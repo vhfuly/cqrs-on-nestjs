@@ -1,12 +1,16 @@
+import { join } from 'path';
+
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { GraphQLModule } from '@nestjs/graphql';
-// import { join } from 'path';
 import { UsersModule } from '@src/users/users.module';
+
 @Module({
   imports: [
+    UsersModule,
     GraphQLModule.forRoot({
+      installSubscriptionHandlers: false,
       autoSchemaFile: 'schema.gql',
     }),
     ConfigModule.forRoot({
@@ -25,7 +29,6 @@ import { UsersModule } from '@src/users/users.module';
       }),
       inject: [ConfigService],
     }),
-    UsersModule,
   ],
 })
 export class AppModule {}
