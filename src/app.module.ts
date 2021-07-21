@@ -5,7 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 // import { GraphQLModule } from '@nestjs/graphql';
 // import { join } from 'path';
-import { CampaignsModule } from '@src/campaigns/campaigns.module';
+import { UsersModule } from '@src/users/users.module';
 @Module({
   imports: [
     // GraphQLModule.forRoot({
@@ -27,7 +27,7 @@ import { CampaignsModule } from '@src/campaigns/campaigns.module';
       }),
       inject: [ConfigService],
     }),
-    CampaignsModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
