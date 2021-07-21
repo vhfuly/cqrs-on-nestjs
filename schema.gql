@@ -12,6 +12,7 @@ type ListUserDto {
 
 type Query {
   getUsers: [ListUserDto!]!
+  getUser(id: String!): ListUserDto!
 }
 
 type Mutation {

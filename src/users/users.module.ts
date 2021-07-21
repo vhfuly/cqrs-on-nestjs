@@ -3,9 +3,9 @@ import { CqrsModule } from '@nestjs/cqrs';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersResolver } from '@src/users/users.resolver';
 import { User, UserSchema } from '@src/users/models/user.model';
-import { UserRepository } from './repositories/user.repository';
-import { CreateUserHandler } from './commands/handlers/create-user.handler';
-import { GetUsersHandler } from './queries/handlers/get-users.handler';
+import { UserRepository } from '@src/users/repositories/user.repository';
+import { CreateUserHandler } from '@src/users/commands/handlers/create-user.handler';
+import { QueryHandlers } from '@src/users/queries/handlers';
 
 @Module({
   imports: [
@@ -21,7 +21,7 @@ import { GetUsersHandler } from './queries/handlers/get-users.handler';
     UsersResolver,
     UserRepository,
     CreateUserHandler,
-    GetUsersHandler,
+    ...QueryHandlers,
   ]
 })
 export class UsersModule {}
