@@ -15,6 +15,11 @@ export class UserRepository {
   ) {}
 
   async create(user: User): Promise<User> {
-    return this.userModel.create(user);
+    return await this.userModel.create(user);
+  }
+
+  async findAll(): Promise<User[]> {
+    
+    return await this.userModel.find({});
   }
 }

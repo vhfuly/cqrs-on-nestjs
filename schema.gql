@@ -4,13 +4,14 @@
 
 """List User DTO"""
 type ListUserDto {
+  id: ID!
   name: String
   phone: String
   email: String
 }
 
 type Query {
-  test: String!
+  getUsers: [ListUserDto!]!
 }
 
 type Mutation {

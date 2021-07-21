@@ -1,7 +1,3 @@
-export class CreateUserCommand {
-  constructor(
-      public readonly name: string,
-      public readonly phone: string,
-      public readonly email: string,
-  ) {}
-}
+import { User } from '@src/users/models/user.model';
+
+export class CreateUserCommand extends User{}

@@ -5,6 +5,7 @@ import { UsersResolver } from '@src/users/users.resolver';
 import { User, UserSchema } from '@src/users/models/user.model';
 import { UserRepository } from './repositories/user.repository';
 import { CreateUserHandler } from './commands/handlers/create-user.handler';
+import { GetUsersHandler } from './queries/handlers/get-users.handler';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { CreateUserHandler } from './commands/handlers/create-user.handler';
     UsersResolver,
     UserRepository,
     CreateUserHandler,
+    GetUsersHandler,
   ]
 })
 export class UsersModule {}

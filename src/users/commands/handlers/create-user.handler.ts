@@ -12,13 +12,9 @@ export class CreateUserHandler implements ICommandHandler<CreateUserCommand>
   ) {}
 
   async execute(command: CreateUserCommand): Promise<User> {
-    const { email, name, phone } = command;
-    const newUser = new User();
-    newUser.email = email;
-    newUser.name = name;
-    newUser.phone = phone;
-    await this.repository.create(newUser);
-    const user = this.eventPublisher.mergeObjectContext(newUser);
+    await this.repository.create(command);
+
+    const user = this.eventPublisher.mergeObjectContext(command);
     user.commit();
     return user;
   }

@@ -1,7 +1,10 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, ObjectType, ID } from '@nestjs/graphql';
 
 @ObjectType({ description: 'List User DTO' })
 export class ListUserDto {
+  @Field(() => ID)
+  id: string;
+
   @Field(() => String, { nullable: true })
   name?: string;
   
